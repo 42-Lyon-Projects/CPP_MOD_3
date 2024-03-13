@@ -26,3 +26,8 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
 	this->attackDamage = other.attackDamage;
 	return *this;
 }
+
+void FragTrap::highFivesGuys(void)
+{
+	std::cout << "BLOUP" << std::endl;
+}
