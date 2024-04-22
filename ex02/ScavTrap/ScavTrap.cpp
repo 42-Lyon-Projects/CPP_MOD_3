@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbadaire <jbadaire@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/22 07:38:30 by jbadaire          #+#    #+#             */
+/*   Updated: 2024/04/22 07:38:30 by jbadaire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
 {
 	this->hitPoints = 100;
 	this->energyPoints = 50;
@@ -10,8 +22,9 @@ ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap " << this->name << " has been created" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other), guardMode(other.guardMode)
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
+	*this = other;
 }
 
 ScavTrap::~ScavTrap()

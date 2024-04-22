@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbadaire <jbadaire@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/22 07:38:30 by jbadaire          #+#    #+#             */
+/*   Updated: 2024/04/22 07:38:30 by jbadaire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap(const std::string name) : ClapTrap(name)
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
 	this->hitPoints = 100;
 	this->energyPoints = 100;
@@ -11,6 +23,7 @@ FragTrap::FragTrap(const std::string name) : ClapTrap(name)
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
 {
+	*this = other;
 }
 
 FragTrap::~FragTrap()
@@ -29,5 +42,5 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
 
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << "BLOUP" << std::endl;
+	std::cout << "HIGHT FIVES GUUYS" << std::endl;
 }

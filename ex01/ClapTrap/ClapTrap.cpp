@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbadaire <jbadaire@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/22 07:15:31 by jbadaire          #+#    #+#             */
+/*   Updated: 2024/04/22 07:15:31 by jbadaire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap(const std::string name) : name(name)
+ClapTrap::ClapTrap(const std::string &name ) : name(name)
 {
 	this->hitPoints = 10;
 	this->energyPoints = 10;
@@ -9,21 +21,24 @@ ClapTrap::ClapTrap(const std::string name) : name(name)
 	std::cout << "ClapTrap " << this->name << " has been created" << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &other) : name(other.name), hitPoints(other.hitPoints), energyPoints(other.energyPoints), attackDamage(other.attackDamage)
-{}
-
-ClapTrap::~ClapTrap()
+ClapTrap::ClapTrap(const ClapTrap &other)
 {
-	std::cout << "ClapTrap " << this->name << " has been destroyed" << std::endl;
+	*this = other;
 }
 
-ClapTrap& ClapTrap::operator=(ClapTrap const &other)
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
 	this->name = other.name;
 	this->hitPoints = other.hitPoints;
 	this->energyPoints = other.energyPoints;
 	this->attackDamage = other.attackDamage;
+	std::cout << "ClapTrap " << this->name << " has been reasigned" << std::endl;
 	return *this;
+}
+
+ClapTrap::~ClapTrap()
+{
+	std::cout << "ClapTrap " << this->name << " has been destroyed" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)

@@ -1,12 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbadaire <jbadaire@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/22 07:18:59 by jbadaire          #+#    #+#             */
+/*   Updated: 2024/04/22 07:24:06 by jbadaire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap(std::string name) : name(name)
+ClapTrap::ClapTrap(const std::string &name) : name(name)
 {
 	this->hitPoints = 10;
 	this->energyPoints = 10;
 	this->attackDamage = 0;
 	std::cout << "ClapTrap " << this->name << " has been created" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &other)
+{
+	*this = other;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
+{
+	this->name = other.name;
+	this->hitPoints = other.hitPoints;
+	this->energyPoints = other.energyPoints;
+	this->attackDamage = other.attackDamage;
+	std::cout << "ClapTrap " << this->name << " has been reasigned" << std::endl;
+	return *this;
 }
 
 ClapTrap::~ClapTrap()
